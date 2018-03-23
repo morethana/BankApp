@@ -1,0 +1,94 @@
+package com.example.k.bankapp;
+
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class User implements Serializable{
+    private String username;
+    private String password;
+    private ArrayList<Account> accounts = new ArrayList<Account>();
+
+    public User fromJson (JSONObject jsonObject){
+        try {
+            User user = new User();
+            JSONObject test = new JSONObject();
+            user.username = jsonObject.getJSONObject("user").get("username").toString();
+
+            ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
+            int numOfTransactions = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").length();
+
+            for (int x = 0; x < numOfTransactions; x++){
+                String id = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("_id").toString();
+                String date = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("date").toString();
+                int sender = Integer.parseInt(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("accountOne").toString());
+                int receiver = Integer.parseInt(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("accountTwo").toString());
+                double amount = Double.parseDouble(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("amount").toString());
+                transactions.add(new Transaction(id, date, sender, receiver, amount));
+            }
+
+            Account account1 = new Account();
+            account1.setId(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("_id").toString());
+            account1.setBalance(Double.parseDouble(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("balance").toString()));
+            account1.setId(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("_id").toString());
+            account1.setTransactions(transactions);
+
+            user.getAccounts().add(account1);
+
+            Log.d("Testing _id", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("_id").toString());
+//            Log.d("Test ARRAY", username.toString());
+//            JSONArray jsonAccounts;
+//            jsonAccounts = jsonObject.getJSONObject("user").getJSONArray("accounts");
+//            Log.d("Test jsonAccounts", jsonAccounts.toString());
+//            JSONArray jsonTransactions;
+//            jsonTransactions = jsonAccounts.getJSONObject(0).getJSONArray("transactions");
+//            Log.d("Test jsonTransactions", jsonTransactions.toString());
+//            Log.d("Test AFTER", jsonTransactions.get(0).toString());
+//            Log.d("Test AFTER AFTER", jsonTransactions.get(1).toString());
+
+//            Log.d("TEST FOR LATER", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(0).get("_id").toString());
+
+            Log.d("TESTING ARRAY", Integer.toString(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").length()));
+
+            Log.d("TEST FOR LATER", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("balance").toString());
+
+
+
+            return user;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(ArrayList<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+}
+

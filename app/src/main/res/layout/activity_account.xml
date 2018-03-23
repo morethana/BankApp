@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.k.bankapp.AccountLogin">
+
+    <Button
+        android:id="@+id/getTransactionListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="96dp"
+        android:text="@string/transactionList" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/logout" />
+
+    <Button
+        android:id="@+id/quickTransactionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/getTransactionListButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:text="@string/quickTransaction" />
+
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logoutButton"
+        android:layout_alignEnd="@+id/accountLabel"
+        android:layout_alignRight="@+id/accountLabel"
+        android:text="@string/greeting"
+        tools:text="@string/greeting" />
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/greeting"
+        android:layout_alignBottom="@+id/greeting"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_toEndOf="@+id/greeting"
+        android:layout_toRightOf="@+id/greeting"
+        android:text="@string/name"
+        tools:text="@string/name" />
+
+    <TextView
+        android:id="@+id/accountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/logoutButton"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/accountLabel"
+        tools:text="@string/accountLabel" />
+
+    <TextView
+        android:id="@+id/accountNumberField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/accountLabel"
+        android:layout_alignBottom="@+id/accountLabel"
+        android:layout_alignLeft="@+id/user"
+        android:layout_alignStart="@+id/user"
+        android:text="@string/accountNumber"
+        tools:text="@string/accountNumber" />
+
+    <TextView
+        android:id="@+id/balanceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/accountLabel"
+        android:layout_alignStart="@+id/accountLabel"
+        android:layout_below="@+id/accountLabel"
+        android:layout_marginTop="32dp"
+        android:text="@string/balanceLabel"
+        tools:text="@string/balanceLabel" />
+
+    <TextView
+        android:id="@+id/currentBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/balanceLabel"
+        android:layout_alignLeft="@+id/accountNumberField"
+        android:layout_alignStart="@+id/accountNumberField"
+        android:text="@string/currentBalance"
+        tools:text="@string/currentBalance" />
+</RelativeLayout>
