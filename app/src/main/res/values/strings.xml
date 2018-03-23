@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">BankApp</string>
+    <string name="app_name">Bank</string>
+    <string name="username">Username</string>
+    <string name="loginButton">Log In</string>
+    <string name="account">Account</string>
+
+    <string name="quickTransaction">Quick Transaction</string>
+    <string name="transactionList">List of Recent Transactions</string>
+    <string name="logout">Log Out</string>
+    <string name="greeting">Hello</string>
+    <string name="name">User</string>
+    <string name="accountLabel">Account Number</string>
+    <string name="accountNumber">0000000</string>
+    <string name="balanceLabel">Current Balance</string>
+    <string name="currentBalance">£0.00</string>
+
+    <string name="transferAccountNumber">Account Number</string>
+    <string name="transferAmount">Amount</string>
+    <string name="sendButton">Send</string>
+    <string name="cancelButton">Cancel</string>
+
+    <string name="date">Date</string>
+    <string name="sender">Sender</string>
+    <string name="receiver">Receiver</string>
+    <string name="amount">Amount</string>
+    <string name="back">Back</string>
 </resources>
