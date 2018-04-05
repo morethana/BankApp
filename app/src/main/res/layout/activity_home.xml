@@ -15,36 +15,47 @@
         android:gravity="end"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText4"
+        <ImageView
+            android:id="@+id/homeLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Welcome" />
+            android:layout_margin="30dp"
+            app:srcCompat="@drawable/logo_name" />
 
         <Button
             android:id="@+id/myFinanceButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:text="@string/myFinanceButton" />
 
         <Button
             android:id="@+id/contactButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:text="@string/contactButton" />
 
         <Button
             android:id="@+id/infoButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:text="@string/infoButton" />
 
         <Button
             android:id="@+id/locationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
             android:text="@string/locationButton" />
     </LinearLayout>
 </RelativeLayout>
