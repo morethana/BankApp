@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Bank</string>
+
+    <string name="myFinanceButton">My Finances</string>
+    <string name="contactButton">Contact</string>
+    <string name="infoButton">Information</string>
+    <string name="locationButton">Location</string>
+
     <string name="username">Username</string>
     <string name="loginButton">Log In</string>
     <string name="account">Account</string>
