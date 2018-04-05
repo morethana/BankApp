@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.k.bankapp.Home">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Welcome" />
+
+        <Button
+            android:id="@+id/myFinanceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/myFinanceButton" />
+
+        <Button
+            android:id="@+id/contactButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactButton" />
+
+        <Button
+            android:id="@+id/infoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/infoButton" />
+
+        <Button
+            android:id="@+id/locationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/locationButton" />
+    </LinearLayout>
+</RelativeLayout>
