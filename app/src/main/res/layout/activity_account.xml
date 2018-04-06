@@ -52,16 +52,16 @@
             android:rowCount="3">
 
             <TextView
-                android:id="@+id/greeting"
+                android:id="@+id/userLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/logoutButton"
                 android:layout_alignEnd="@+id/accountLabel"
                 android:layout_alignRight="@+id/accountLabel"
                 android:layout_margin="10dp"
-                android:text="@string/greeting"
+                android:text="@string/username"
                 android:textSize="20sp"
-                tools:text="@string/greeting" />
+                tools:text="@string/username" />
 
             <TextView
                 android:id="@+id/user"
@@ -69,10 +69,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textSize="40sp"
-                android:layout_alignBaseline="@+id/greeting"
-                android:layout_alignBottom="@+id/greeting"
-                android:layout_toEndOf="@+id/greeting"
-                android:layout_toRightOf="@+id/greeting"
+                android:layout_alignBaseline="@+id/userLabel"
+                android:layout_alignBottom="@+id/userLabel"
+                android:layout_toEndOf="@+id/userLabel"
+                android:layout_toRightOf="@+id/userLabel"
                 android:text="@string/name"
                 tools:text="@string/name" />
 

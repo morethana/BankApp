@@ -55,21 +55,27 @@ public class Home extends AppCompatActivity {
         contactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Home.this, Contact.class);
+                finish();
+                startActivity(intent);
             }
         });
 
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Home.this, Information.class);
+                finish();
+                startActivity(intent);
             }
         });
 
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Home.this, Location.class);
+                finish();
+                startActivity(intent);
             }
         });
 

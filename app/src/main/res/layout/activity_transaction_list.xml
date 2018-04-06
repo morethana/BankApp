@@ -11,51 +11,67 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dip"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:id="@+id/linearLayout">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/dateLabel"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="@string/date"
-            android:textAlignment="center" />
+            android:orientation="horizontal"
+            android:weightSum="100">
 
-        <TextView
-            android:id="@+id/senderLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="@string/sender"
-            android:textAlignment="center" />
+            <TextView
+                android:id="@+id/dateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/date"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/receiverLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="@string/receiver"
-            android:textAlignment="center" />
+            <TextView
+                android:id="@+id/senderLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="25"
+                android:text="@string/sender"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/amountLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="@string/amount"
-            android:textAlignment="center" />
+            <TextView
+                android:id="@+id/receiverLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/receiver"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/amountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/amount"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginBottom="60dp" />
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="440dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout" />
 
     <Button
         android:id="@+id/backButton"
@@ -63,6 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_marginBottom="14dp"
         android:text="@string/back" />
 </RelativeLayout>

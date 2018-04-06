@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -12,39 +11,88 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="219dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logo_name" />
 
         <EditText
             android:id="@+id/accountNumberField"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:layout_marginRight="125dp"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:textAlignment="center"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/numberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Account Number" />
 
         <EditText
             android:id="@+id/amountField"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:layout_marginRight="125dp"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:textAlignment="center"
+            android:textSize="40sp" />
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/amountField"
-            android:layout_alignStart="@+id/amountField"
-            android:layout_below="@+id/amountField"
-            android:text="@string/sendButton" />
+            android:gravity="center_horizontal"
+            android:text="Amount" />
 
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/amountField"
-            android:layout_alignRight="@+id/amountField"
-            android:layout_alignTop="@+id/sendButton"
-            android:text="@string/cancelButton" />
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/amountField"
+                android:layout_alignStart="@+id/amountField"
+                android:layout_below="@+id/amountField"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:layout_marginRight="15dp"
+                android:text="@string/sendButton" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/amountField"
+                android:layout_alignRight="@+id/amountField"
+                android:layout_alignTop="@+id/sendButton"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:text="@string/cancelButton" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
