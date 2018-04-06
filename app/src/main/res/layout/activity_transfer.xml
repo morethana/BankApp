@@ -9,45 +9,42 @@
     tools:context="com.example.k.bankapp.Transfer">
 
 
-    <EditText
-        android:id="@+id/accountNumberField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/transferAccountNumber" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/amountField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/accountNumberField"
-        android:layout_alignStart="@+id/accountNumberField"
-        android:layout_below="@+id/accountNumberField"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/transferAmount" />
+        <EditText
+            android:id="@+id/accountNumberField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/amountField"
-        android:layout_alignStart="@+id/amountField"
-        android:layout_below="@+id/amountField"
-        android:layout_marginTop="72dp"
-        android:text="@string/sendButton" />
+        <EditText
+            android:id="@+id/amountField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/amountField"
-        android:layout_alignRight="@+id/amountField"
-        android:layout_alignTop="@+id/sendButton"
-        android:text="@string/cancelButton" />
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/amountField"
+            android:layout_alignStart="@+id/amountField"
+            android:layout_below="@+id/amountField"
+            android:text="@string/sendButton" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/amountField"
+            android:layout_alignRight="@+id/amountField"
+            android:layout_alignTop="@+id/sendButton"
+            android:text="@string/cancelButton" />
+    </LinearLayout>
+
 </RelativeLayout>

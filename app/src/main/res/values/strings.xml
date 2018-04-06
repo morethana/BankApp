@@ -11,9 +11,9 @@
     <string name="account">Account</string>
 
     <string name="quickTransaction">Quick Transaction</string>
-    <string name="transactionList">List of Recent Transactions</string>
+    <string name="transactionList">List of Transactions</string>
     <string name="logout">Log Out</string>
-    <string name="greeting">Hello</string>
+    <string name="greeting">Username</string>
     <string name="name">User</string>
     <string name="accountLabel">Account Number</string>
     <string name="accountNumber">0000000</string>

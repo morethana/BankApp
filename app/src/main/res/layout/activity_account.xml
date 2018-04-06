@@ -8,101 +8,147 @@
     android:background="@color/white"
     tools:context="com.example.k.bankapp.AccountLogin">
 
-    <Button
-        android:id="@+id/getTransactionListButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="96dp"
-        android:text="@string/transactionList" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_marginTop="13dp"
-        android:text="@string/logout" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/quickTransactionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/getTransactionListButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
-        android:text="@string/quickTransaction" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="219dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="75dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/logo_name" />
 
-    <TextView
-        android:id="@+id/greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/logoutButton"
-        android:layout_alignEnd="@+id/accountLabel"
-        android:layout_alignRight="@+id/accountLabel"
-        android:text="@string/greeting"
-        tools:text="@string/greeting" />
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:text="@string/logout" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/greeting"
-        android:layout_alignBottom="@+id/greeting"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:layout_toEndOf="@+id/greeting"
-        android:layout_toRightOf="@+id/greeting"
-        android:text="@string/name"
-        tools:text="@string/name" />
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:rowCount="3">
 
-    <TextView
-        android:id="@+id/accountLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/logoutButton"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/accountLabel"
-        tools:text="@string/accountLabel" />
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/logoutButton"
+                android:layout_alignEnd="@+id/accountLabel"
+                android:layout_alignRight="@+id/accountLabel"
+                android:layout_margin="10dp"
+                android:text="@string/greeting"
+                android:textSize="20sp"
+                tools:text="@string/greeting" />
 
-    <TextView
-        android:id="@+id/accountNumberField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/accountLabel"
-        android:layout_alignBottom="@+id/accountLabel"
-        android:layout_alignLeft="@+id/user"
-        android:layout_alignStart="@+id/user"
-        android:text="@string/accountNumber"
-        tools:text="@string/accountNumber" />
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="40sp"
+                android:layout_alignBaseline="@+id/greeting"
+                android:layout_alignBottom="@+id/greeting"
+                android:layout_toEndOf="@+id/greeting"
+                android:layout_toRightOf="@+id/greeting"
+                android:text="@string/name"
+                tools:text="@string/name" />
 
-    <TextView
-        android:id="@+id/balanceLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/accountLabel"
-        android:layout_alignStart="@+id/accountLabel"
-        android:layout_below="@+id/accountLabel"
-        android:layout_marginTop="32dp"
-        android:text="@string/balanceLabel"
-        tools:text="@string/balanceLabel" />
+            <TextView
+                android:id="@+id/accountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/logoutButton"
+                android:text="@string/accountLabel"
+                tools:text="@string/accountLabel" />
 
-    <TextView
-        android:id="@+id/currentBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/balanceLabel"
-        android:layout_alignLeft="@+id/accountNumberField"
-        android:layout_alignStart="@+id/accountNumberField"
-        android:text="@string/currentBalance"
-        tools:text="@string/currentBalance" />
+            <TextView
+                android:id="@+id/accountNumberField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="40sp"
+                android:layout_alignBaseline="@+id/accountLabel"
+                android:layout_alignBottom="@+id/accountLabel"
+                android:layout_alignLeft="@+id/user"
+                android:layout_alignStart="@+id/user"
+                android:text="@string/accountNumber"
+                tools:text="@string/accountNumber" />
+
+            <TextView
+                android:id="@+id/balanceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:layout_alignLeft="@+id/accountLabel"
+                android:layout_alignStart="@+id/accountLabel"
+                android:layout_below="@+id/accountLabel"
+                android:text="@string/balanceLabel"
+                tools:text="@string/balanceLabel" />
+
+            <TextView
+                android:id="@+id/currentBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="40sp"
+                android:layout_alignBottom="@+id/balanceLabel"
+                android:layout_alignLeft="@+id/accountNumberField"
+                android:layout_alignStart="@+id/accountNumberField"
+                android:text="@string/currentBalance"
+                tools:text="@string/currentBalance" />
+        </GridLayout>
+
+        <Button
+            android:id="@+id/quickTransactionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:layout_above="@+id/getTransactionListButton"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="@string/quickTransaction" />
+
+        <Button
+            android:id="@+id/getTransactionListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="@string/transactionList" />
+
+    </LinearLayout>
+
 </RelativeLayout>

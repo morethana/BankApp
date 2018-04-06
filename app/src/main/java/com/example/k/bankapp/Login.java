@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     private EditText mUsername;
     private EditText mPassword;
     private Button mLoginButton;
+    private Button mCancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +48,20 @@ public class Login extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonPressed();
+                loginButtonPressed();
+            }
+        });
+
+        mCancelButton = (Button) findViewById(R.id.loginCancel);
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelButtonPressed();
             }
         });
     }
 
-    public void  buttonPressed(){
+    public void  loginButtonPressed(){
         enteredUsername = mUsername.getText().toString();
         enteredPassword = mPassword.getText().toString();
 
@@ -152,6 +161,12 @@ public class Login extends AppCompatActivity {
 ////        Intent intent = new Intent(this, com.example.k.bank.AccountLogin.class);
 ////        finish();
 ////        startActivity(intent);
+    }
+
+    private void cancelButtonPressed(){
+        Intent intent = new Intent(Login.this, Home.class);
+        finish();
+        startActivity(intent);
     }
 }
 
