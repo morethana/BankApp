@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <ImageView
@@ -26,36 +26,40 @@
             android:id="@+id/myFinanceButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
             android:layout_margin="10dp"
-            android:text="@string/myFinanceButton" />
+            android:background="@color/colorPrimary"
+            android:text="@string/myFinanceButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/contactButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
             android:layout_margin="10dp"
-            android:text="@string/contactButton" />
+            android:background="@color/colorPrimary"
+            android:text="@string/contactButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/infoButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
             android:layout_margin="10dp"
-            android:text="@string/infoButton" />
+            android:background="@color/colorPrimary"
+            android:text="@string/infoButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/locationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
             android:layout_margin="10dp"
-            android:text="@string/locationButton" />
+            android:background="@color/colorPrimary"
+            android:text="@string/locationButton"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
     </LinearLayout>
 </RelativeLayout>
