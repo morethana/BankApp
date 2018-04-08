@@ -9,6 +9,7 @@ import android.widget.Button;
 public class Contact extends AppCompatActivity {
 
     private Button mBackButton;
+    private Button mBranchButton;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -23,5 +24,16 @@ public class Contact extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mBranchButton  = (Button) findViewById(R.id.branchButton);
+        mBranchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Contact.this, Location.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+
     }
 }
