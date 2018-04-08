@@ -43,7 +43,9 @@
     <string name="subtitleTwoLabelOne">You can also talk face to face with our representatives at our branch.</string>
     <string name="branchButton">Find branch</string>
 
-    <string name="infoText1">Local bank near you!</string>
+    <string name="locationLabel">Find Our Branch</string>
+
+    <string name="infoText1">Local bank near!</string>
     <string name="infoText2">moBank is a young, professional, commercial bank based in UK providing financial services at simple button press on your phone.</string>
     <string name="infoText3">We are fastest growing local company dedicated to keep our customers happy and ensuring that services we provide are more efficient than our competitors.</string>
 </resources>

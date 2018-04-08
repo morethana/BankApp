@@ -41,9 +41,11 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(51.507, -0.127);
-        googleMap.addMarker(new MarkerOptions().position(sydney)
+        LatLng london = new LatLng(51.507, -0.127);
+        float zoomLevel = 13.0f;
+        googleMap.addMarker(new MarkerOptions().position(london)
                 .title("Marker in London"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(london));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(london, zoomLevel));
     }
 }

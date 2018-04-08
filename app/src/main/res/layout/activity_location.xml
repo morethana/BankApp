@@ -19,10 +19,11 @@
             android:id="@+id/locationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Branch Near You"
+            android:text="@string/locationLabel"
             android:textColor="@color/colorPrimary"
             android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/locationLabel" />
 
         <fragment
             android:id="@+id/map"
