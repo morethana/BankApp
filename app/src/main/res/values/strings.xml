@@ -30,4 +30,20 @@
     <string name="receiver">Receiver</string>
     <string name="amount">Amount</string>
     <string name="back">Back</string>
+
+    <string name="contactLabel">Contact Us</string>
+    <string name="contactIntro">Very often you might find yourself wanting to find out more information about the services we provide. In order to help you with that we have provided multiple ways for you to get in touch with us. We are always happy to help you</string>
+    <string name="subtitleOne">Call us</string>
+    <string name="subtitleOneLabelOne">Call a member of our team at UK-based call centre.</string>
+    <string name="numOneLabel">From UK</string>
+    <string name="numOne">0345 720 3040</string>
+    <string name="numTwoLabel">From abroad</string>
+    <string name="numTwo">+44(0)113 242 1984</string>
+    <string name="subtitleTwo">Come into branch</string>
+    <string name="subtitleTwoLabelOne">You can also talk face to face with our representatives at our branch.</string>
+    <string name="branchButton">Find branch</string>
+
+    <string name="infoText1">Local bank near you!</string>
+    <string name="infoText2">moBank is a young, professional, commercial bank based in UK providing financial services at simple button press on your phone.</string>
+    <string name="infoText3">We are fastest growing local company dedicated to keep our customers happy and ensuring that services we provide are more efficient than our competitors.</string>
 </resources>

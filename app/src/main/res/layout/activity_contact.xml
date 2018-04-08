@@ -14,18 +14,141 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/loginLogo"
+            android:layout_width="219dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/logo_name" />
+
         <TextView
-            android:id="@+id/contactLabel"
+            android:id="@+id/informationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact Details"
+            android:text="@string/contactLabel"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/infoIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/contactIntro"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/contactIntro" />
+
+        <TextView
+            android:id="@+id/subtitleOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitleOne"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/subtitleOneLabelOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/subtitleOneLabelOne"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/subtitleOneLabelOne" />
+
+        <TextView
+            android:id="@+id/numOneLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/numOneLabel"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/numOneLabel" />
+
+        <TextView
+            android:id="@+id/numOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/numOne"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/numOne" />
+
+        <TextView
+            android:id="@+id/numTwoLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/numTwoLabel"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/numTwoLabel" />
+
+        <TextView
+            android:id="@+id/numTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/numTwo"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/numTwo" />
+
+        <TextView
+            android:id="@+id/subtitleTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitleTwo"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/subtitleTwoLabelOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="@string/subtitleTwoLabelOne"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="@string/subtitleTwoLabelOne" />
+
+        <Button
+            android:id="@+id/branchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/branchButton"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            tools:text="@string/branchButton" />
 
         <Button
             android:id="@+id/contactBackButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             tools:text="@string/back" />
     </LinearLayout>
 </RelativeLayout>
