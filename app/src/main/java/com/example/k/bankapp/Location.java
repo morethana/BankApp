@@ -39,7 +39,7 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // Add a marker in Sydney, Australia,
+        // Add a marker in London, UK,
         // and move the map's camera to the same location.
         LatLng london = new LatLng(51.507, -0.127);
         float zoomLevel = 13.0f;
