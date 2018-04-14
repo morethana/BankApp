@@ -30,6 +30,7 @@ public class AccountLogin extends AppCompatActivity {
 
     private Button mQuickTransactionButton;
     private Button mTransactionListButton;
+    private Button mStatsButton;
     private Button mLogoutButton;
 
     User user = new User();
@@ -65,9 +66,9 @@ public class AccountLogin extends AppCompatActivity {
 
             Log.d("In !(user == null)", userCopy.getUsername() + " -- " + userCopy.getPassword());
 
-            Log.d("Test in AccountLogin", user.getUsername());
-            Log.d("Test in AccountLogin", user.getAccounts().get(0).getId());
-            Log.d("Test in AccountLogin", user.getAccounts().get(0).getTransactions().get(0).getDate());
+//            Log.d("Test in AccountLogin", user.getUsername());
+//            Log.d("Test in AccountLogin", user.getAccounts().get(0).getId());
+//            Log.d("Test in AccountLogin", user.getAccounts().get(0).getTransactions().get(0).getDate());
 
             username = (TextView) findViewById(R.id.user);
             accountNumber = (TextView) findViewById(R.id.accountNumberField);
@@ -75,6 +76,7 @@ public class AccountLogin extends AppCompatActivity {
 
             mQuickTransactionButton = (Button) findViewById(R.id.quickTransactionButton);
             mTransactionListButton = (Button) findViewById(R.id.getTransactionListButton);
+            mStatsButton = (Button) findViewById(R.id.statsButton);
             mLogoutButton = (Button) findViewById(R.id.logoutButton);
 
             username.setText(user.getUsername());
@@ -95,6 +97,17 @@ public class AccountLogin extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(AccountLogin.this, TransactionList.class);
+                    intent.putExtra("User", user);
+                    intent.putExtra("UserCopy", userCopy);
+                    finish();
+                    startActivity(intent);
+                }
+            });
+
+            mStatsButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(AccountLogin.this, Stats.class);
                     intent.putExtra("User", user);
                     intent.putExtra("UserCopy", userCopy);
                     finish();

@@ -57,6 +57,11 @@
         </activity>
 
         <activity
+            android:name="Stats"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
             android:name="Transfer"
             android:screenOrientation="portrait">
         </activity>

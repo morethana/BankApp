@@ -84,8 +84,8 @@ public class Login extends AppCompatActivity {
                         User user = new User();
                         user = user.fromJson(response);
                         Log.d("TEST IN HOME", user.toString());
-                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-                        Log.d("ANOTHER IN HOME", Double.toString(test));
+//                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
+//                        Log.d("ANOTHER IN HOME", Double.toString(test));
 
                         user.setPassword(enteredPassword);
 
