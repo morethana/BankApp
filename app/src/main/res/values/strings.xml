@@ -32,6 +32,9 @@
     <string name="back">Back</string>
 
     <string name="statsButton">View statistics</string>
+    <string name="progressViewLabel">Amount spend in</string>
+    <string name="popularAccountLabel">Favorite Account</string>
+    <string name="popularAccount">1001010</string>
 
     <string name="contactLabel">Contact Us</string>
     <string name="contactIntro">Very often you might find yourself wanting to find out more information about the services we provide. In order to help you with that we have provided multiple ways for you to get in touch with us. We are always happy to help you</string>

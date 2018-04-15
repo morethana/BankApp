@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,9 +19,85 @@
             android:id="@+id/statImage"
             android:layout_width="219dp"
             android:layout_height="57dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/logo_name" />
+
+        <TextView
+            android:id="@+id/progressViewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logoutButton"
+            android:layout_alignEnd="@+id/accountLabel"
+            android:layout_alignRight="@+id/accountLabel"
+            android:layout_margin="10dp"
+            android:text="@string/progressViewLabel"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="@string/progressViewLabel" />
+
+        <at.grabner.circleprogress.CircleProgressView
+            android:id="@+id/circleProgressView"
+
+            android:layout_width="277dp"
+            android:layout_height="277dp"
+            CircleProgressView:cpv_autoTextSize="true"
+            CircleProgressView:cpv_barColor="@color/colorPrimaryLight"
+            CircleProgressView:cpv_barWidth="35dp"
+            CircleProgressView:cpv_innerContourSize="0dp"
+            CircleProgressView:cpv_maxValue="10000"
+            CircleProgressView:cpv_outerContourSize="0dp"
+            CircleProgressView:cpv_rimColor="@color/colorPrimaryVeryLight"
+            CircleProgressView:cpv_rimWidth="35dp"
+            CircleProgressView:cpv_seekMode="false"
+            CircleProgressView:cpv_showUnit="false"
+            CircleProgressView:cpv_spinColor="@color/colorPrimary"
+            CircleProgressView:cpv_textColor="@color/colorPrimaryDark"
+            CircleProgressView:cpv_textScale="1"
+            CircleProgressView:cpv_unit="%"
+            CircleProgressView:cpv_unitColor="@color/colorPrimary"
+            CircleProgressView:cpv_unitPosition="right_top"
+            CircleProgressView:cpv_unitScale="1"
+            CircleProgressView:cpv_value="6000" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/popularAccountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/logoutButton"
+                android:layout_alignEnd="@+id/accountLabel"
+                android:layout_alignRight="@+id/accountLabel"
+                android:layout_margin="10dp"
+                android:text="@string/popularAccountLabel"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="@string/popularAccountLabel" />
+
+            <TextView
+                android:id="@+id/popularAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/userLabel"
+                android:layout_alignBottom="@+id/userLabel"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@+id/userLabel"
+                android:layout_toRightOf="@+id/userLabel"
+                android:text="@string/popularAccount"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="@string/popularAccount" />
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/backStatsButton"
