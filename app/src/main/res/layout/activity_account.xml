@@ -67,13 +67,15 @@
                 android:id="@+id/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textSize="40sp"
                 android:layout_alignBaseline="@+id/userLabel"
                 android:layout_alignBottom="@+id/userLabel"
+                android:layout_margin="10dp"
                 android:layout_toEndOf="@+id/userLabel"
                 android:layout_toRightOf="@+id/userLabel"
                 android:text="@string/name"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="40sp"
                 tools:text="@string/name" />
 
             <TextView
@@ -98,6 +100,8 @@
                 android:layout_alignBottom="@+id/accountLabel"
                 android:layout_alignLeft="@+id/user"
                 android:layout_alignStart="@+id/user"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
                 android:text="@string/accountNumber"
                 tools:text="@string/accountNumber" />
 
@@ -122,6 +126,8 @@
                 android:layout_alignBottom="@+id/balanceLabel"
                 android:layout_alignLeft="@+id/accountNumberField"
                 android:layout_alignStart="@+id/accountNumberField"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
                 android:text="@string/currentBalance"
                 tools:text="@string/currentBalance" />
         </GridLayout>

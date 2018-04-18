@@ -87,6 +87,7 @@ public class AccountLogin extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(AccountLogin.this, Transfer.class);
+                    intent.putExtra("User", user);
                     intent.putExtra("UserCopy", userCopy);
                     finish();
                     startActivity(intent);

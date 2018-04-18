@@ -31,7 +31,7 @@ public class Home extends AppCompatActivity {
     private Button contactButton;
     private Button infoButton;
     private Button locationButton;
-
+    private Button quitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class Home extends AppCompatActivity {
         contactButton = (Button)findViewById(R.id.contactButton);
         infoButton = (Button)findViewById(R.id.infoButton);
         locationButton = (Button)findViewById(R.id.locationButton);
+        quitButton = (Button) findViewById(R.id.quitButton);
 
         myFinanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +77,14 @@ public class Home extends AppCompatActivity {
                 Intent intent = new Intent(Home.this, Location.class);
                 finish();
                 startActivity(intent);
+            }
+        });
+
+        quitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
             }
         });
 

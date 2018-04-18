@@ -19,7 +19,9 @@
             android:id="@+id/homeLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:srcCompat="@drawable/logo_name" />
 
         <Button
@@ -61,5 +63,16 @@
             android:text="@string/locationButton"
             android:textColor="@color/white"
             android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/quitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/quitButton"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            tools:text="@string/quitButton" />
     </LinearLayout>
 </RelativeLayout>

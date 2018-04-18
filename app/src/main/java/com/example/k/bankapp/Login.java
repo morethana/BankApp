@@ -1,7 +1,9 @@
 package com.example.k.bankapp;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,6 +64,32 @@ public class Login extends AppCompatActivity {
     }
 
     public void  loginButtonPressed(){
+        if (mUsername.getText().toString().equals("") || mPassword.getText().toString().equals("") || mUsername.getText().equals(null) || mPassword.getText().equals(null)){
+            showEmptyFieldMessage();
+        } else {
+            proceedWithLogin();
+        }
+    }
+
+    private void showEmptyFieldMessage(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Error");
+        builder.setMessage("Fields cannot be empty");
+        builder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mUsername.setText("");
+                        mPassword.setText("");
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void proceedWithLogin(){
         enteredUsername = mUsername.getText().toString();
         enteredPassword = mPassword.getText().toString();
 
@@ -91,6 +119,11 @@ public class Login extends AppCompatActivity {
 
                         Intent intent = new Intent(Login.this, AccountLogin.class);
                         intent.putExtra("User", user);
+
+                        Log.d("TestingVolleyToast", "It worked!");
+                        Toast confirmToast = Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT);
+                        confirmToast.show();
+
                         finish();
                         startActivity(intent);
                     }
@@ -98,69 +131,31 @@ public class Login extends AppCompatActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Testing Volley", "That didn't work!");
-                        Toast errorToast = Toast.makeText(Login.this, "Error, your username or password is incorrect!", Toast.LENGTH_SHORT);
-                        errorToast.show();
+                        showNetworkErrorMessage();
 
                     }
                 });
 
-// Access the RequestQueue through your singleton class.
+        // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
 
-//// Request a string response from the provided URL.
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        // Display the first 500 characters of the response string.
-//                        Log.d("Testing Volley", "Response is: "+ response.toString());
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d("Testing Volley", "That didn't work!");
-//            }
-//        });
-//
-//// Add the request to the RequestQueue.
-//        queue.add(stringRequest);
+    private void showNetworkErrorMessage(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("Network Error");
+        builder.setMessage("Esnure username and password are correct. \nCheck internet connection.");
+        builder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mUsername.setText("");
+                        mPassword.setText("");
+                    }
+                });
 
-//        AsyncHttpClient client = new AsyncHttpClient();
-//
-//        client.get("https://project-tobetodo.c9users.io/userLogin/" + enteredUsername + "/" + enteredPassword, new JsonHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                Log.d("onSuccess", response.toString());
-//                User user = new User();
-//                user = user.fromJson(response);
-//                Log.d("TEST IN HOME", user.toString());
-//                double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-//                Log.d("ANOTHER IN HOME", Double.toString(test));
-//
-//                user.setPassword(enteredPassword);
-//
-//                Intent intent = new Intent(Home.this, AccountLogin.class);
-//                intent.putExtra("User", user);
-//                finish();
-//                startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable e, JSONObject response) {
-//                Log.d("onFailure", Integer.toString(statusCode));
-//                Log.d("onFailure", headers.toString());
-//                Log.d("onFailure", e.toString());
-//                Log.d("onFailure", response.toString());
-//
-//
-//            }
-//        });
-//        Log.d("Test", "Past the client method");
-//
-////        Intent intent = new Intent(this, com.example.k.bank.AccountLogin.class);
-////        finish();
-////        startActivity(intent);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void cancelButtonPressed(){

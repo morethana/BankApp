@@ -35,11 +35,11 @@
             android:id="@+id/infoText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
             android:text="@string/infoText1"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryLight"
-            android:textSize="30sp"
-            android:layout_marginTop="0dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             tools:text="@string/infoText1" />
 

@@ -5,6 +5,7 @@
     <string name="contactButton">Contact</string>
     <string name="infoButton">Information</string>
     <string name="locationButton">Location</string>
+    <string name="quitButton">Quit</string>
 
     <string name="username">Username</string>
     <string name="loginButton">Log In</string>
@@ -33,7 +34,7 @@
 
     <string name="statsButton">View statistics</string>
     <string name="progressViewLabel">Amount spend in</string>
-    <string name="popularAccountLabel">Favorite Account</string>
+    <string name="popularAccountLabel">Favourite Account</string>
     <string name="popularAccount">1001010</string>
 
     <string name="contactLabel">Contact Us</string>
@@ -50,7 +51,7 @@
 
     <string name="locationLabel">Find Our Branch</string>
 
-    <string name="infoText1">Local bank near!</string>
+    <string name="infoText1">Local bank at click of a button!</string>
     <string name="infoText2">moBank is a young, professional, commercial bank based in UK providing financial services at simple button press on your phone.</string>
-    <string name="infoText3">We are fastest growing local company dedicated to keep our customers happy and ensuring that services we provide are more efficient than our competitors.</string>
+    <string name="infoText3">We are fastest growing local company dedicated to keep our customers happy and ensure that services we provide are more efficient than our competitors.</string>
 </resources>
