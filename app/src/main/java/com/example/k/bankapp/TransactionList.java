@@ -38,7 +38,7 @@ public class TransactionList extends AppCompatActivity {
 
         Collections.reverse(user.getAccounts().get(0).getTransactions());
 
-        TransactionListAdapter adapter = new TransactionListAdapter(this, R.layout.adapter_view_layout, user.getAccounts().get(0).getTransactions());
+        TransactionListAdapter adapter = new TransactionListAdapter(this, R.layout.adapter_view_layout, user.getAccounts().get(0).getTransactions(), user);
         mListView.setAdapter(adapter);
 
         backButton.setOnClickListener(new View.OnClickListener() {

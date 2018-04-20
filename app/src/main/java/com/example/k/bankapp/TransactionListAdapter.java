@@ -17,11 +17,13 @@ public class TransactionListAdapter extends ArrayAdapter<Transaction> {
 
     private Context mContext;
     private int mResource;
+    private User mUser;
 
-    public TransactionListAdapter(Context context, int resource, ArrayList<Transaction> objects) {
+    public TransactionListAdapter(Context context, int resource, ArrayList<Transaction> objects, User user) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
+        mUser = user;
     }
 
     @NonNull
@@ -44,8 +46,16 @@ public class TransactionListAdapter extends ArrayAdapter<Transaction> {
         TextView tvAmount = (TextView)convertView.findViewById(R.id.textView4);
 
         tvDate.setText(date.substring(0, 10));
-        tvSender.setText(Integer.toString(sender));
-        tvReceiver.setText(Integer.toString(receiver));
+        if(Integer.parseInt(mUser.getAccounts().get(0).getId()) == sender){
+            tvSender.setText("You");
+        } else {
+            tvSender.setText(Integer.toString(sender));
+        }
+        if(Integer.parseInt(mUser.getAccounts().get(0).getId()) == receiver){
+            tvReceiver.setText("You");
+        } else {
+            tvReceiver.setText(Integer.toString(receiver));
+        }
         tvAmount.setText(Double.toString(amount));
 
         return convertView;
