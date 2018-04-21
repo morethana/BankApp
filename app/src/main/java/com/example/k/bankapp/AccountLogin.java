@@ -32,43 +32,21 @@ public class AccountLogin extends AppCompatActivity {
     private Button mTransactionListButton;
     private Button mStatsButton;
     private Button mLogoutButton;
-
     User user = new User();
-    User user2;
-
-    private final CountDownLatch loginLatch = new CountDownLatch(1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
         init();
     }
 
     private void init(){
-
         user = (User) getIntent().getSerializableExtra("User");
-
-//        if(user == null){
-//            Log.d("InFIRST_IF+++++++++", "Start of if");
-//            user = requestData();
-//
-//        }
-
-        Log.d("JustBefore2ndIF", "--------------------");
         if(!(user == null)){
-            Log.d("InSECOND_IF=======)", "Start of if");
-
             final User userCopy = new User();
             userCopy.setUsername(user.getUsername());
             userCopy.setPassword(user.getPassword());
-
-            Log.d("In !(user == null)", userCopy.getUsername() + " -- " + userCopy.getPassword());
-
-//            Log.d("Test in AccountLogin", user.getUsername());
-//            Log.d("Test in AccountLogin", user.getAccounts().get(0).getId());
-//            Log.d("Test in AccountLogin", user.getAccounts().get(0).getTransactions().get(0).getDate());
 
             username = (TextView) findViewById(R.id.user);
             accountNumber = (TextView) findViewById(R.id.accountNumberField);
@@ -125,75 +103,31 @@ public class AccountLogin extends AppCompatActivity {
                 }
             });
         }
-
-
     }
 
-    private User requestData(){
-        Log.d("In requestData", "STARTED...........................");
-
-        user = (User) getIntent().getSerializableExtra("UserCopy");
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://project-tobetodo.c9users.io/userLogin/" + user.getUsername() + "/" + user.getPassword();
-        String url2 ="http://www.google.com";
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("TestingVolleyACCOUNT", "Response is: "+ response.toString());
-
-                        User user = new User();
-                        user = user.fromJson(response);
-                        Log.d("TEST IN HOME", user.toString());
-                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-                        Log.d("ANOTHER IN HOME", Double.toString(test));
-
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("TestingVolleyACCOUNT", "That didn't work!");
-
-                    }
-                });
-
-// Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
-//        AsyncHttpClient client = new AsyncHttpClient();
-//        client.get("https://project-tobetodo.c9users.io/userLogin/kevin/kevin", new JsonHttpResponseHandler(){
+//    private User requestData(){
+//        user = (User) getIntent().getSerializableExtra("UserCopy");
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url ="https://project-tobetodo.c9users.io/userLogin/" + user.getUsername() + "/" + user.getPassword();
 //
-//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//                Log.d("onSuccessinAccountLogin", response.toString());
-//                Log.d("++++++++++++++++++++++", response.toString());
-//                Log.d("----------------------", response.toString());
-//                User userr = new User();
-//                user = userr.fromJson(response);
-//                loginLatch.countDown();
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+//                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        User user = new User();
+//                        user = user.fromJson(response);
+//                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Log.d("TestingVolleyACCOUNT", "That didn't work!");
+//                    }
+//                });
 //
-//                Log.d("TestInAccountClient", user.toString());
-//                Log.d("same again", user.getAccounts().get(0).getTransactions().get(0).getDate());
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable e, JSONObject response) {
-//                Log.d("onFailureinAccountLogin", e.toString());
-//            }
-//        });
-//        if (user == null){
-//            Log.d("ERROR!!!!", "Empty user");
-//        }
-////        try {
-////            loginLatch.await();
-////        } catch (InterruptedException e) {
-////            e.printStackTrace();
-////        }
-//        Log.d("In requestData", "FINISHED............................");
-        return user;
-
-    }
+//        // Access the RequestQueue through your singleton class.
+//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+//        return user;
+//    }
 }
 

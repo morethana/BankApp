@@ -40,25 +40,6 @@ public class User implements Serializable{
 
             user.getAccounts().add(account1);
 
-            Log.d("Testing _id", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("_id").toString());
-//            Log.d("Test ARRAY", username.toString());
-//            JSONArray jsonAccounts;
-//            jsonAccounts = jsonObject.getJSONObject("user").getJSONArray("accounts");
-//            Log.d("Test jsonAccounts", jsonAccounts.toString());
-//            JSONArray jsonTransactions;
-//            jsonTransactions = jsonAccounts.getJSONObject(0).getJSONArray("transactions");
-//            Log.d("Test jsonTransactions", jsonTransactions.toString());
-//            Log.d("Test AFTER", jsonTransactions.get(0).toString());
-//            Log.d("Test AFTER AFTER", jsonTransactions.get(1).toString());
-
-//            Log.d("TEST FOR LATER", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(0).get("_id").toString());
-
-            Log.d("TESTING ARRAY", Integer.toString(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").length()));
-
-            Log.d("TEST FOR LATER", jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("balance").toString());
-
-
-
             return user;
         } catch (JSONException e) {
             e.printStackTrace();

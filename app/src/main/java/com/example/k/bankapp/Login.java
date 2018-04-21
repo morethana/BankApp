@@ -43,6 +43,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        init();
+    }
+
+    private void init(){
         mUsername = (EditText) findViewById(R.id.username);
         mPassword = (EditText) findViewById(R.id.password);
 
@@ -84,7 +88,6 @@ public class Login extends AppCompatActivity {
                         mPassword.setText("");
                     }
                 });
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -93,34 +96,23 @@ public class Login extends AppCompatActivity {
         enteredUsername = mUsername.getText().toString();
         enteredPassword = mPassword.getText().toString();
 
-        Log.d("Test", enteredUsername.toString());
-        Log.d("Test", enteredPassword.toString());
-        Log.d("Test", "https://project-tobetodo.c9users.io/userLogin/" + enteredUsername + "/" + enteredPassword);
-
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://project-tobetodo.c9users.io/userLogin/" + enteredUsername + "/" + enteredPassword;
-        String url2 ="http://www.google.com";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Testing Volley", "Response is: "+ response.toString());
-
                         User user = new User();
                         user = user.fromJson(response);
-                        Log.d("TEST IN HOME", user.toString());
-//                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-//                        Log.d("ANOTHER IN HOME", Double.toString(test));
 
                         user.setPassword(enteredPassword);
 
                         Intent intent = new Intent(Login.this, AccountLogin.class);
                         intent.putExtra("User", user);
 
-                        Log.d("TestingVolleyToast", "It worked!");
                         Toast confirmToast = Toast.makeText(Login.this, "Login successful!", Toast.LENGTH_SHORT);
                         confirmToast.show();
 

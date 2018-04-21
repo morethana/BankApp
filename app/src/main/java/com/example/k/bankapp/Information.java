@@ -14,6 +14,10 @@ public class Information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
 
+        init();
+    }
+
+    private void init(){
         mBackButton = (Button) findViewById(R.id.informationBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,7 +21,7 @@ import java.util.Collections;
 
 public class TransactionList extends AppCompatActivity {
 
-    public static final String TAG = "TransactionList";
+//    public static final String TAG = "TransactionList";
     ListView mListView;
     User user;
     User userCopy;
@@ -31,6 +31,10 @@ public class TransactionList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_list);
 
+        init();
+    }
+
+    private void init(){
         user = (User) getIntent().getSerializableExtra("User");
         userCopy = (User) getIntent().getSerializableExtra("UserCopy");
         mListView = (ListView)findViewById(R.id.listView);
@@ -44,42 +48,40 @@ public class TransactionList extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestQueue queue = Volley.newRequestQueue(TransactionList.this);
-                String url ="https://project-tobetodo.c9users.io/userLogin/" + userCopy.getUsername() + "/" + userCopy.getPassword();
-                String url2 ="http://www.google.com";
-
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Log.d("TestingVolleyList", "Response is: "+ response.toString());
-
-                                User user = new User();
-                                user = user.fromJson(response);
-//                                Log.d("TEST IN TRANSFER", user.toString());
-//                                double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-//                                Log.d("ANOTHER IN TRANSFER", Double.toString(test));
-
-                                user.setPassword( userCopy.getPassword());
-
-                                Intent intent = new Intent(TransactionList.this, AccountLogin.class);
-                                intent.putExtra("User", user);
-                                finish();
-                                startActivity(intent);
-                            }
-                        }, new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.d("TestingVolleyList", "That didn't work!");
-
-                            }
-                        });
-
-                // Access the RequestQueue through your singleton class.
-                MySingleton.getInstance(TransactionList.this).addToRequestQueue(jsonObjectRequest);
+                requestDataAndReturn();
             }
         });
+    }
+
+    private void requestDataAndReturn(){
+        RequestQueue queue = Volley.newRequestQueue(TransactionList.this);
+        String url ="https://project-tobetodo.c9users.io/userLogin/" + userCopy.getUsername() + "/" + userCopy.getPassword();
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        User user = new User();
+                        user = user.fromJson(response);
+
+                        user.setPassword( userCopy.getPassword());
+
+                        Intent intent = new Intent(TransactionList.this, AccountLogin.class);
+                        intent.putExtra("User", user);
+                        finish();
+                        startActivity(intent);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("TestingVolleyList", "That didn't work!");
+
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        MySingleton.getInstance(TransactionList.this).addToRequestQueue(jsonObjectRequest);
     }
 }

@@ -21,6 +21,10 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
+        init();
+    }
+
+    private void init(){
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -34,7 +38,6 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
                 startActivity(intent);
             }
         });
-
     }
 
     @Override

@@ -38,6 +38,10 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        init();
+    }
+
+    private void init(){
         myFinanceButton = (Button)findViewById(R.id.myFinanceButton);
         contactButton = (Button)findViewById(R.id.contactButton);
         infoButton = (Button)findViewById(R.id.infoButton);
@@ -87,7 +91,6 @@ public class Home extends AppCompatActivity {
                 System.exit(0);
             }
         });
-
     }
 
 }

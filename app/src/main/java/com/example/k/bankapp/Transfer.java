@@ -41,8 +41,6 @@ public class Transfer extends AppCompatActivity {
         user = (User) getIntent().getSerializableExtra("User");
         userCopy = (User) getIntent().getSerializableExtra("UserCopy");
 
-        Log.d("In Transfer", userCopy.getUsername() + " -- " + userCopy.getPassword());
-
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,15 +129,12 @@ public class Transfer extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(Transfer.this);
         String url ="https://project-tobetodo.c9users.io/userTransfer/" + userCopy.getUsername() + "/" + userCopy.getPassword()
                 + "/" + accountNumberField.getText() + "/" + amountField.getText();
-        String url2 ="http://www.google.com";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("TestingVolleyTransfer", "Response is: "+ response.toString());
-
                         User user = new User();
                         user = user.fromJson(response);
                         Log.d("TEST IN TRANSFER", user.toString());
@@ -151,7 +146,6 @@ public class Transfer extends AppCompatActivity {
                         Intent intent = new Intent(Transfer.this, AccountLogin.class);
                         intent.putExtra("User", user);
 
-                        Log.d("TestingVolleyToast2", "It worked!");
                         Toast confirmToast = Toast.makeText(Transfer.this, "Transaction completed!", Toast.LENGTH_SHORT);
                         confirmToast.show();
 
@@ -162,7 +156,6 @@ public class Transfer extends AppCompatActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("TestingVolleyTransfer", "That didn't work!");
                         showNetworkError();
 
                     }
@@ -193,20 +186,16 @@ public class Transfer extends AppCompatActivity {
     private void cancelAndReturn(){
         RequestQueue queue = Volley.newRequestQueue(Transfer.this);
         String url ="https://project-tobetodo.c9users.io/userLogin/" + userCopy.getUsername() + "/" + userCopy.getPassword();
-        String url2 ="http://www.google.com";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("TestingVolleyTransfer", "Response is: "+ response.toString());
-
                         User user = new User();
                         user = user.fromJson(response);
-                        Log.d("TEST IN TRANSFER", user.toString());
+
                         double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-                        Log.d("ANOTHER IN TRANSFER", Double.toString(test));
 
                         user.setPassword( userCopy.getPassword());
 

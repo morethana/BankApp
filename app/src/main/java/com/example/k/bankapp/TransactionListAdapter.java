@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TransactionListAdapter extends ArrayAdapter<Transaction> {
 
-    public static final String TAG = "TransactionListAdapter";
+//    public static final String TAG = "TransactionListAdapter";
 
     private Context mContext;
     private int mResource;

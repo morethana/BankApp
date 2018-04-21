@@ -15,6 +15,10 @@ public class Contact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
+        init();
+    }
+
+    private void init(){
         mBackButton = (Button) findViewById(R.id.contactBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +38,5 @@ public class Contact extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }
