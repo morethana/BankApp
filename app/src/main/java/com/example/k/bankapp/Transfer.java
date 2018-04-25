@@ -31,40 +31,44 @@ public class Transfer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
-
-        //remember to check if not empty
-        accountNumberField = (EditText) findViewById(R.id.accountNumberField);
-        amountField = (EditText) findViewById(R.id.amountField);
-        sendButton = (Button) findViewById(R.id.sendButton);
-        cancelButton = (Button) findViewById(R.id.cancelButton);
-
-        user = (User) getIntent().getSerializableExtra("User");
-        userCopy = (User) getIntent().getSerializableExtra("UserCopy");
-
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(amountField.getText().toString().equals("") || accountNumberField.getText().toString().equals("") || amountField.getText().equals(null) || accountNumberField.getText().equals(null)){
-                    showErrorMessage();
-                } else {
-                    double amountValue = Double.parseDouble(amountField.getText().toString());
-                    if(user.getAccounts().get(0).getBalance() < amountValue){
-                        showInsufficientMessage();
-                    } else {
-                        getConfirmation();
-                    }
-                }
-            }
-        });
-
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancelAndReturn();
-            }
-        });
+        init();
     }
 
+    private void init(){
+        user = (User) getIntent().getSerializableExtra("User");
+        userCopy = (User) getIntent().getSerializableExtra("UserCopy");
+        // Check if getSerializableExtra method provided user object
+        if(user != null){
+            accountNumberField = (EditText) findViewById(R.id.accountNumberField);
+            amountField = (EditText) findViewById(R.id.amountField);
+            sendButton = (Button) findViewById(R.id.sendButton);
+            cancelButton = (Button) findViewById(R.id.cancelButton);
+
+            sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(amountField.getText().toString().equals("") || accountNumberField.getText().toString().equals("") || amountField.getText().equals(null) || accountNumberField.getText().equals(null)){
+                        showErrorMessage();
+                    } else {
+                        double amountValue = Double.parseDouble(amountField.getText().toString());
+                        if(user.getAccounts().get(0).getBalance() < amountValue){
+                            showInsufficientFundsMessage();
+                        } else {
+                            getConfirmation();
+                        }
+                    }
+                }
+            });
+
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cancelAndReturn();
+                }
+            });
+        }
+    }
+    // SInform user that fields cannot be empty for transaction to continue
     private void showErrorMessage(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -83,7 +87,7 @@ public class Transfer extends AppCompatActivity {
         dialog.show();
     }
 
-    private void showInsufficientMessage(){
+    private void showInsufficientFundsMessage(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle("Error");
@@ -100,7 +104,7 @@ public class Transfer extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
+    // Get transaction confirmation form user
     private void getConfirmation(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -136,19 +140,16 @@ public class Transfer extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         User user = new User();
+                        // Response converted to user object
                         user = user.fromJson(response);
-                        Log.d("TEST IN TRANSFER", user.toString());
-                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-                        Log.d("ANOTHER IN TRANSFER", Double.toString(test));
-
                         user.setPassword( userCopy.getPassword());
-
+                        // Intent object created with attached user to be used by next class
                         Intent intent = new Intent(Transfer.this, AccountLogin.class);
                         intent.putExtra("User", user);
-
+                        // Display short message to the user
                         Toast confirmToast = Toast.makeText(Transfer.this, "Transaction completed!", Toast.LENGTH_SHORT);
                         confirmToast.show();
-
+                        // Current activity closed and next opened
                         finish();
                         startActivity(intent);
                     }
@@ -156,15 +157,15 @@ public class Transfer extends AppCompatActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        // Show message if error has occurred or no response received
                         showNetworkError();
-
                     }
                 });
 
         // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(Transfer.this).addToRequestQueue(jsonObjectRequest);
     }
-
+    // Show error if request unsuccessful
     private void showNetworkError(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -184,23 +185,24 @@ public class Transfer extends AppCompatActivity {
     }
 
     private void cancelAndReturn(){
+        // Instantiate the RequestQueue
         RequestQueue queue = Volley.newRequestQueue(Transfer.this);
+        //Create specific url for user
         String url ="https://project-tobetodo.c9users.io/userLogin/" + userCopy.getUsername() + "/" + userCopy.getPassword();
-
+        //Create new jsobObjectRequest as GET request
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         User user = new User();
+                        // Response converted to user object
                         user = user.fromJson(response);
-
-                        double test = user.getAccounts().get(0).getTransactions().get(0).getAmount();
-
                         user.setPassword( userCopy.getPassword());
-
+                        // Intent object created with attached user to be used by next class
                         Intent intent = new Intent(Transfer.this, AccountLogin.class);
                         intent.putExtra("User", user);
+                        // Current activity closed and next opened
                         finish();
                         startActivity(intent);
                     }
@@ -208,8 +210,8 @@ public class Transfer extends AppCompatActivity {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("TestingVolleyTransfer", "That didn't work!");
-
+                        //Display error to the user
+                        showNetworkError();
                     }
                 });
 

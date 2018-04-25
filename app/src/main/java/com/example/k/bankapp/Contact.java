@@ -14,10 +14,9 @@ public class Contact extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
-
         init();
     }
-
+    // Initialise onClickListeners for both buttons
     private void init(){
         mBackButton = (Button) findViewById(R.id.contactBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {

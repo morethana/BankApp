@@ -2,6 +2,7 @@ package com.example.k.bankapp;
 
 import java.io.Serializable;
 
+// Class to define transaction objects from json response
 public class Transaction implements Serializable{
     private String id;
     private String date;

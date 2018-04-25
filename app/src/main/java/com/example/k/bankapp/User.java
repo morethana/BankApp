@@ -12,17 +12,16 @@ public class User implements Serializable{
     private String username;
     private String password;
     private ArrayList<Account> accounts = new ArrayList<Account>();
-
+    // Method for creating java user object from json object
     public User fromJson (JSONObject jsonObject){
         try {
             User user = new User();
-            JSONObject test = new JSONObject();
             user.username = jsonObject.getJSONObject("user").get("username").toString();
 
             ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
             int numOfTransactions = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").length();
-
+            // Assign transaction json objects to java objects
             for (int x = 0; x < numOfTransactions; x++){
                 String id = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("_id").toString();
                 String date = jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("date").toString();
@@ -31,7 +30,7 @@ public class User implements Serializable{
                 double amount = Double.parseDouble(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).getJSONArray("transactions").getJSONObject(x).get("amount").toString());
                 transactions.add(new Transaction(id, date, sender, receiver, amount));
             }
-
+            // Assign account json object to java object
             Account account1 = new Account();
             account1.setId(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("_id").toString());
             account1.setBalance(Double.parseDouble(jsonObject.getJSONObject("user").getJSONArray("accounts").getJSONObject(0).get("balance").toString()));

@@ -37,11 +37,11 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         init();
     }
 
     private void init(){
+        // Connect with views
         myFinanceButton = (Button)findViewById(R.id.myFinanceButton);
         contactButton = (Button)findViewById(R.id.contactButton);
         infoButton = (Button)findViewById(R.id.infoButton);

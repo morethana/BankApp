@@ -8,7 +8,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-
+// Class required for volley requests
 public class MySingleton {
     private static MySingleton mInstance;
     private RequestQueue mRequestQueue;

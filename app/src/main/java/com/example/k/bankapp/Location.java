@@ -20,15 +20,15 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-
         init();
     }
 
     private void init(){
+        // Fragment for displaying map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        // Button to go back to Home screen
         mBackButton = (Button) findViewById(R.id.locationBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,13 +42,11 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // Add a marker in London, UK,
+        // Add a marker for branch
         // and move the map's camera to the same location.
-        LatLng london = new LatLng(51.507, -0.127);
+        LatLng branch = new LatLng(51.507, -0.127);
         float zoomLevel = 13.0f;
-        googleMap.addMarker(new MarkerOptions().position(london)
-                .title("Marker in London"));
-        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(london));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(london, zoomLevel));
+        googleMap.addMarker(new MarkerOptions().position(branch).title("Our Branch"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(branch, zoomLevel));
     }
 }

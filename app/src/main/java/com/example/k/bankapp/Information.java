@@ -16,7 +16,7 @@ public class Information extends AppCompatActivity {
 
         init();
     }
-
+    //Initialise components
     private void init(){
         mBackButton = (Button) findViewById(R.id.informationBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {

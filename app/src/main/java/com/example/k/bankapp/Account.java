@@ -3,6 +3,7 @@ package com.example.k.bankapp;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+// Class for storing account information from Json
 public class Account implements Serializable {
     private String id;
     private double balance;
